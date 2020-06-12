@@ -1,11 +1,29 @@
+Name based Apache virtual hosts
+
+1.) Set hostnames
 [root@server conf.d]# cat /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost t.localdomain localhost6 localhost6.localdomain6
 192.168.56.101  www.example1.com
 192.168.56.101  www.example2.com
 
+2.) locate httpd.conf   ---> Main config file (no changes to be done..Just see at end of file where conf files are there
+# Load config files in the "/etc/httpd/conf.d" directory, if any.
+IncludeOptional conf.d/*.conf
+/etc/httpd/conf/httpd.conf)
 
-[root@server conf.d]# cat example*
+ locate httpd-vhosts.conf    ---> example of httpd-vhosts.conf file
+/usr/share/doc/httpd-2.4.6/httpd-vhosts.conf
+
+
+3.) Create conf files  ---> on restart/reload check these conf files( we can define in httpd.conf file also)
+root@server conf.d]# pwd
+/etc/httpd/conf.d
+[root@server conf.d]# ls
+autoindex.conf  example1.conf  example2.conf  README  userdir.conf  welcome.conf
+
+
+[root@server conf.d]# cat example1.conf
 <VirtualHost *:80>
     ServerAdmin devopsharish1.com
     DocumentRoot "/var/www/html/example1"
@@ -14,6 +32,7 @@
     CustomLog "/var/log/httpd/example1.com-access_log" common
 </VirtualHost>
 
+cat example1.conf
 <VirtualHost *:80>
     ServerAdmin devopsharish1.com
     DocumentRoot "/var/www/html/example2"
@@ -22,9 +41,8 @@
     CustomLog "/var/log/httpd/example2.com-access_log" common
 </VirtualHost>
 
-[root@server conf.d]# pwd
-/etc/httpd/conf.d
-[root@server conf.d]# ls
-autoindex.conf  example1.conf  example2.conf  README  userdir.conf  welcome.conf
-[root@server conf.d]#
+
+4.) httpd -d
+systemctl httpd restart
+
 
