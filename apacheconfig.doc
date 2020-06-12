@@ -3,6 +3,8 @@
 ::1         localhost t.localdomain localhost6 localhost6.localdomain6
 192.168.56.101  www.example1.com
 192.168.56.101  www.example2.com
+
+
 [root@server conf.d]# cat example*
 <VirtualHost *:80>
     ServerAdmin devopsharish1.com
