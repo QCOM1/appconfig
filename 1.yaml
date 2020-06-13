@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Install Apache
+    command: yum install -y httpd httpd-devel
+  - name: py configuration files
+    copy:
+            src: "/home/ansadmin/example1.conf" 
+            dest: "/etc/httpd/conf.d"
+  - name: y configuration files
+    copy:
+            src: "/home/ansadmin/example2.conf"
+            dest: "/etc/httpd/conf.d"
+  - name: example1 index.html
+    raw:
+       mkdir -p /var/www/html/example1
+       mkdir -p /var/www/html/example2
+  - name: Make sure Apache is started and configure it to run at boot.
+    service: name=httpd state=started enabled=yes
+
