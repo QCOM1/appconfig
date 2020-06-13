@@ -15,8 +15,15 @@ IncludeOptional conf.d/*.conf
  locate httpd-vhosts.conf    ---> example of httpd-vhosts.conf file
 /usr/share/doc/httpd-2.4.6/httpd-vhosts.conf
 
+3.) 
 
-3.) Create conf files  ---> on restart/reload check these conf files( we can define in httpd.conf file also)
+chown -R apache:apache /etc/httpd
+chown -R apache:apache /var/www/html/exam*
+mkdir -p "/var/www/html/example1"      vim index.html
+mkdir -p "/var/www/html/example2"      vim index.html
+
+
+Create conf files  ---> on restart/reload check these conf files( we can define in httpd.conf file also)
 root@server conf.d]# pwd
 /etc/httpd/conf.d
 [root@server conf.d]# ls
@@ -32,7 +39,7 @@ autoindex.conf  example1.conf  example2.conf  README  userdir.conf  welcome.conf
     CustomLog "/var/log/httpd/example1.com-access_log" common
 </VirtualHost>
 
-cat example1.conf
+cat example2.conf
 <VirtualHost *:80>
     ServerAdmin devopsharish1.com
     DocumentRoot "/var/www/html/example2"
@@ -44,5 +51,15 @@ cat example1.conf
 
 4.) httpd -d
 systemctl httpd restart
+systemctl status httpd
+chkconfig httpd on 
+
+5.)
+curl www.example1.com
+111111
+ curl www.example2.com
+222222222222
+
+
 
 
