@@ -1,0 +1,25 @@
+Listing 4-14. Jinja {% if %} statement with {% elif %} and {% else %}
+
+
+{% if drinks %}             {% if drinks %}              {% if drinks %}
+  We have drinks!                We have drinks              We have drinks 
+{% endif %}                 {% else %}                   {% elif drinks_on_sale %}
+                                No drinks,sorry              We have drinks on sale!
+                            {% endif %}                  {% else %}
+                                                             No drinks, sorry 
+                                                         {% endif %}
+
+
+
+
+LOOPS
+{% for page in app_pages %}
+     {{page}}.html is web page
+ {% endfor %}
+ 
+ {% for ELEMENT in ARRAY %}
+   Process {{ELEMENT}}
+{% endfor %}
+
+
+
