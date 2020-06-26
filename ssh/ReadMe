@@ -1,0 +1,13 @@
+sudo su 
+
+cp sudoers /etc/sudoers
+cp sshd_config /etc/ssh/sshd_config
+cp id_rsa /home/ansadmin/.ssh
+cp id_rsa.pub /home/ansadmin/.ssh
+cp authorized_keys /home/ansadmin/.ssh
+
+chmod 750 /home/ansadmin
+chmod 700 /home/ansadmin/.ssh
+chmod 600 /home/ansadmin/.ssh/authorized_keys
+chmod 600 /home/ansadmin/.ssh/id_rsa
+chmod 644 /home/ansadmin/.ssh/id_rsa.pub
