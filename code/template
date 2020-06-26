@@ -8,6 +8,25 @@ Listing 4-14. Jinja {% if %} statement with {% elif %} and {% else %}
                             {% endif %}                  {% else %}
                                                              No drinks, sorry 
                                                          {% endif %}
+     
+     
+Distribution         :  {{ ansible_facts.distribution }}
+Distribution Release :  {{ ansible_facts.distribution_release }} 
+Distribution Version : {{ ansible_facts.distribution_version }} 
+Nbre CPU core        : {{ ansible_facts.processor_cores }} cores 
+Total Memory         : {{ ansible_facts.memtotal_mb }} mb   
+
+
+
+{% if ansible_memtotal_mb < 4000 %}
+  Mem is small
+{% else %}                   
+  Mem is ok
+{% endif %} 
+
+
+
+
 
 
 
