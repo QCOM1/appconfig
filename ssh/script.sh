@@ -1,7 +1,10 @@
-#scp -r -i ssh/1.pem ssh ec2-user@ec2-35-173-47-74.compute-1.amazonaws.com:~/.
+#scp -r -i ssh/1.pem ssh ec2-user@ec2-35-173-215-43.compute-1.amazonaws.com:~/.
 #scp -r -i 1.pem *  ec2-user@ec2-35-173-215-43.compute-1.amazonaws.com:~/.
-
 sudo su 
+useradd ansadmin
+sudo su ec2-user
+cd 
+cd ssh
  yes| cp sudoers /etc/sudoers
  yes| cp sshd_config /etc/ssh/sshd_config
  mkdir /home/ansadmin/.ssh
@@ -25,6 +28,7 @@ ip a
 ssh ansadmin@172.31.71.155 -o StrictHostKeyChecking=no
 
 sudo su 
+cd /home/ec2-user
  yes| cp sudoers /etc/sudoers
  yes| cp sshd_config /etc/ssh/sshd_config
  mkdir /home/ansadmin/.ssh
@@ -32,8 +36,8 @@ sudo su
   cp id_rsa.pub /home/ansadmin/.ssh
 cp -rf authorized_keys  /home/ansadmin/.ssh
 
-chmod 750 /home/ansadmin
-chmod 700 /home/ansadmin/.ssh
+sudo chmod 750 /home/ansadmin
+sudo chmod 700 /home/ansadmin/.ssh
 chmod 600 /home/ansadmin/.ssh/authorized_keys
 chmod 600 /home/ansadmin/.ssh/id_rsa
 chmod 644 /home/ansadmin/.ssh/id_rsa.pub
