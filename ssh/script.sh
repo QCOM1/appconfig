@@ -1,4 +1,6 @@
 #scp -r -i ssh/1.pem ssh ec2-user@ec2-35-173-47-74.compute-1.amazonaws.com:~/.
+#scp -r -i 1.pem *  ec2-user@ec2-35-173-215-43.compute-1.amazonaws.com:~/.
+
 sudo su 
  yes| cp sudoers /etc/sudoers
  yes| cp sshd_config /etc/ssh/sshd_config
