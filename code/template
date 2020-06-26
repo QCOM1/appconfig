@@ -41,4 +41,11 @@ LOOPS
 {% endfor %}
 
 
+{% for u in app_users  %}
+     {{u.name}} is {{u.role}}
+ {% endfor %}
+ 
+ {% for u in app_users  %}
+     {{u.name| capitalize}} is {{u.role}}
+ {% endfor %}
 
